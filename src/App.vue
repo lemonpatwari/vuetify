@@ -1,28 +1,51 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="inspire">
+    <v-card>
+      <v-system-bar></v-system-bar>
+      <v-toolbar flat>
+        <v-toolbar-title>My Document</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <div>
+          <v-switch
+              v-model="sticky"
+              label="Sticky Banner"
+              hide-details
+          ></v-switch>
+        </div>
+      </v-toolbar>
+      <v-banner
+          single-line
+          :sticky="sticky"
+      >
+        We can't save your edits while you are in offline mode.
+
+        <template v-slot:actions>
+          <v-btn
+              text
+              color="deep-purple accent-4"
+          >
+            Get Online
+          </v-btn>
+        </template>
+      </v-banner>
+      <v-card-text class="grey lighten-4">
+        <v-sheet
+            max-width="800"
+            height="300"
+            class="mx-auto"
+        ></v-sheet>
+      </v-card-text>
+    </v-card>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
